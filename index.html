@@ -1857,9 +1857,9 @@ margin-bottom: 40px; }
 <body class="vsc-initialized"><main class="main"><section class="common_common_footer_sec__84vH7"><div class="common_c_sec_grey__klTD6 common_c_propo_info__OB_1g"><div class="common_c_propologo__3qhV_ common_mb24__4u9Xq"><img class="common_c_img_logo__9ODN_" src="https://mamadodo.github.io/api-test/images/propofmBlack.png" alt="声に触れる、心ひろがる。 | PROPO.FM"></div><p class="common_c_text__sRzHM common_mb10__o_w7N">PROPO.FM は、人々の心に残るポッドキャストを世の中に届けるサービスです。ビジネスからアートまで、声の力を探求し、驚き・感動・優しさを紡ぎ、時間と空間を越えて、社会に新しいつながりを広げます。</p><a class="common_c_textlink__O5W1G" href="https://propo.fm/service">PROPO.FM のサービス</a></div><div class="common_c_sec_grey__klTD6 undefined"><p class="common_c_title_small__tl_cj common_mb20__GvpOm">新しいお気に入りの番組を、<br class="common_br_sp__prGzD">簡単に見つけよう。</p><p class="common_c_text__sRzHM common_mb10__o_w7N">メール登録いただけると、お好みに合いそうなエピソードを PROPO.FM がセレクトしてお届けします。</p>
           <form class="common_c_flexForm_area__bx9BV common_mb30__Iuen9">
           <div class="common_c_input_wrap__91_sq undefined">
-          <input id="js-mail" name="email" class="common_c_input_text__EoWXJ undefined"></div>
+          <input id="js-mail" type="text" class="common_c_input_text__EoWXJ"></div>
           <div class="common_c_submit_wrap__kWABP">
-            <input id="js-btn" type="submit" class="common_c_submit_btn__8L629" value="">
+            <button id="js-btn" class="common_c_submit_btn__8L629"></button>
           </div>
           </form>
           </div>
@@ -1867,6 +1867,44 @@ margin-bottom: 40px; }
           </main>
           </body>
 
-          <script src="common.js">
+          <!-- <script src="common.js">
+          </script> -->
+          <script>
+            const $mail = document.getElementById("js-mail")
+const $btn = document.getElementById("js-btn")
+
+function onClickMail(){
+  console.log($mail.value)
+
+
+  (async () => {
+    const data = {
+          client_id: 'xsxd4pxyodsBqyY9GfTgGNRjGOzof9Lo',
+          client_secret: 'nV7Syls7g2m8v_gxDVfdpu8cxBckbLdvB-uZTFxH8sEVgHlk5J0w8m0dQpG5tzdy',
+          connection: 'email',
+          email: $mail.value,
+          send: 'link',
+          authParams: { 
+            "scope": "openid profile email"
+          }
+        }
+    
+        const JSONdata = JSON.stringify(data)
+        const endpoint = 'https://dev-h5zvf-6s.us.auth0.com/passwordless/start'
+        const options = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSONdata,
+        }
+    
+        const response = await fetch(endpoint, options)
+        const result = await response.json()
+      })()
+    }
+      
+  $btn.addEventListener('click', onClickMail)
+
           </script>
           </html>
