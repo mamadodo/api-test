@@ -1,21 +1,23 @@
 const $mail = document.getElementById("js-mail")
 const $btn = document.getElementById("js-btn")
+const $btn2 = document.getElementById("btn2")
 
-function onClickMail(){
+async function onClickMail(){
   console.log($mail.value)
 
-
-  (async () => {
-    const data = {
-          client_id: 'xsxd4pxyodsBqyY9GfTgGNRjGOzof9Lo',
-          client_secret: 'nV7Syls7g2m8v_gxDVfdpu8cxBckbLdvB-uZTFxH8sEVgHlk5J0w8m0dQpG5tzdy',
-          connection: 'email',
-          email: $mail.value,
-          send: 'link',
-          authParams: { 
-            "scope": "openid profile email"
-          }
-        }
+  const data = {
+    client_id: 'xsxd4pxyodsBqyY9GfTgGNRjGOzof9Lo',
+    client_secret: 'nV7Syls7g2m8v_gxDVfdpu8cxBckbLdvB-uZTFxH8sEVgHlk5J0w8m0dQpG5tzdy',
+    connection: 'email',
+    email: $mail.value,
+    send: 'link',
+    authParams: { 
+      "scope": "openid profile email"
+    }
+  }
+  
+  // (async () => {
+    console.log(data)
     
         const JSONdata = JSON.stringify(data)
         const endpoint = 'https://dev-h5zvf-6s.us.auth0.com/passwordless/start'
@@ -29,7 +31,9 @@ function onClickMail(){
     
         const response = await fetch(endpoint, options)
         const result = await response.json()
-      })()
+        console.log(result)
+      // })()
     }
       
   $btn.addEventListener('click', onClickMail)
+  // $btn2.addEventListener('click', onClickMail)
