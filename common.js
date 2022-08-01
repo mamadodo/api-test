@@ -1,7 +1,7 @@
 const $mail = document.getElementById("js-mail")
 const $btn = document.getElementById("js-btn")
 
-function onClickMail(){
+async function onClickMail(){
   const data = {
       client_id: 'xsxd4pxyodsBqyY9GfTgGNRjGOzof9Lo',
       client_secret: 'nV7Syls7g2m8v_gxDVfdpu8cxBckbLdvB-uZTFxH8sEVgHlk5J0w8m0dQpG5tzdy',
