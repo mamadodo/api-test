@@ -33,7 +33,7 @@ async function onClickMail(){
       console.log(response);
       if(response.ok) {
         console.log('fetch OK');
-        window.location.href('https://mamadodo.github.io/api-test/complete.html')
+        window.location.href='https://mamadodo.github.io/api-test/complete.html'
       } else {
         console.log('fetch NG');
       }
