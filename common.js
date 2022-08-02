@@ -16,24 +16,28 @@ async function onClickMail(){
     }
   }
   
-  // (async () => {
     console.log(data)
     
-        const JSONdata = JSON.stringify(data)
-        const endpoint = 'https://dev-h5zvf-6s.us.auth0.com/passwordless/start'
-        const options = {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSONdata,
-        }
-    
-        const response = await fetch(endpoint, options)
-        const result = await response.json()
-        console.log(result)
-      // })()
+      const JSONdata = JSON.stringify(data)
+      const endpoint = 'https://dev-h5zvf-6s.us.auth0.com/passwordless/start'
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSONdata,
+      }
+  
+      const response = await fetch(endpoint, options)
+      const result = await response.json()
+      console.log(result);
+      console.log(response);
+      if(response.ok) {
+        console.log('fetch OK');
+      } else {
+        console.log('fetch NG');
+      }
+
     }
       
   $btn.addEventListener('click', onClickMail)
-  // $btn2.addEventListener('click', onClickMail)
