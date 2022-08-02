@@ -6,7 +6,8 @@ async function onClickMail(){
   console.log($mail.value)
 
   const data = {
-    client_id: 'xsxd4pxyodsBqyY9GfTgGNRjGOzof9Lo',
+    client_id: 'xsxd4pxyodsBqyY9GfTgGNRjGOzof9',
+    // client_id: 'xsxd4pxyodsBqyY9GfTgGNRjGOzof9Lo',
     client_secret: 'nV7Syls7g2m8v_gxDVfdpu8cxBckbLdvB-uZTFxH8sEVgHlk5J0w8m0dQpG5tzdy',
     connection: 'email',
     email: $mail.value,
