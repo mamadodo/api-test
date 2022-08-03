@@ -11,7 +11,8 @@ async function onClickMail(){
     email: $mail.value,
     send: 'link',
     authParams: { 
-      "scope": "openid profile email"
+      "scope": "openid profile email",
+      "response_type": "code"
     }
   }
   
